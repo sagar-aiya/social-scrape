@@ -9,7 +9,7 @@ socialDomains = ["twitter.com","facebook.com","linkedin.com","quora.com","angel.
 
 def isTwitterProfile(href,tld):
     urlParts = href.split(str(tld))
-    if(re.match(r'^/[\w\d\.-]+[\w\d]$', urlParts[1])):
+    if(re.match(r'^/[\w\d\.-]+[\w\d/]$', urlParts[1])):
         if(len(urlParts[0])==0 or re.match(r'[\w\d://]*www[\.]$', urlParts[0]) or re.match(r'[\w:/]+[/]$', urlParts[0])):
             uname = re.search(r'[\w\d.-]+[\w\d]$',urlParts[1]).group();
             if uname == 'share':
@@ -20,25 +20,25 @@ def isTwitterProfile(href,tld):
     
 def isFacebookProfile(href,tld):
     urlParts = href.split(str(tld))
-    if re.match(r'^/[\w\d\.-]+[\w\d]$', urlParts[1]):
+    if re.match(r'^/[\w\d\.-]+[\w\d/]$', urlParts[1]):
         return True
     return False
     
 def isLinkedInProfile(href,tld):
     urlParts = href.split(str(tld))
-    if re.match(r'^/[\w\d/\.-]+[\w\d]$', urlParts[1]):
+    if re.match(r'^/[\w\d/\.-]+[\w\d/]$', urlParts[1]):
         return True
     return False
     
 def isAngelProfile(href,tld):
     urlParts = href.split(str(tld))
-    if re.match(r'^/[\w\d\.-]+[\w\d]$', urlParts[1]):
+    if re.match(r'^/[\w\d\.-]+[\w\d/]$', urlParts[1]):
         return True
     return False
     
 def isQuoraProfile(href,tld):
     urlParts = href.split(str(tld))
-    if re.match(r'^/[\w\d\.-]+[\w\d]$', urlParts[1]):
+    if re.match(r'^/[\w\d\.-]+[\w\d/]$', urlParts[1]):
         return True
     return False
             
