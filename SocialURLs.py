@@ -5,17 +5,17 @@ from tld import get_tld
 import pprint
     
 #TODO: Capture the username from the href - include username check in __equals__
-
 socialDomains = ["twitter.com","facebook.com","linkedin.com","quora.com","angel.co"]
 
-def isSocialProfile():
-    pass
-      
 def isTwitterProfile(href,tld):
     urlParts = href.split(str(tld))
     if(re.match(r'^/[\w\d\.-]+[\w\d]$', urlParts[1])):
         if(len(urlParts[0])==0 or re.match(r'[\w\d://]*www[\.]$', urlParts[0]) or re.match(r'[\w:/]+[/]$', urlParts[0])):
-            return True
+            uname = re.search(r'[\w\d.-]+[\w\d]$',urlParts[1]).group();
+            if uname == 'share':
+                return False
+            else:
+                return True
     return False
     
 def isFacebookProfile(href,tld):
